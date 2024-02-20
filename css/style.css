@@ -3,26 +3,75 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: rgb(31, 31, 31);
+    display: flex;
+    flex-direction: column;
 }
 
+#content {
+   flex: 1 0 auto;
+}
 #main {
     float: left;
     height: auto;
-    width: 700px;
+    width: 800px;
+    margin-top: 8vh;
+    margin-left: 10vw;
 }
+
 #wallpaper{
     position: relative;
     float: left;
-    min-height: 412px;
-    min-width: 700px;
+    min-height: 450px;
+    min-width: 800px;
     height: auto;
     width: auto;
     border: solid 2px white;
     border-radius: 3px;
+    margin-bottom: 40px;
 }
 
 #question, #input_image, #to_get_the_code{
-    display: inline-block;
+   vertical-align: middle;
+   margin-right: 50px;
+   display: inline-block;
+}
+
+#question{
+   font-family: "Noto Sans SC", sans-serif;
+   height: 40px;
+   width: 40px;
+   font-size: 1.6rem;
+   text-align: center;
+   color: white;
+   border-radius: 25px;
+   border: solid 4px white;
+
+}
+
+#input_image, button{
+   font-family: "Noto Sans SC", sans-serif;
+   font-weight: bold;
+   font-size: medium;
+   min-height: 40px;
+   height: auto;
+   width: 10vw;
+   border-radius: 10px;
+}
+
+#to_get_the_code {
+   background-color: white;
+   font-family: "Noto Sans SC", sans-serif;
+   font-weight: bold;
+   font-size: medium;
+   height: 40px;
+   width: 13vw;
+   border-radius: 10px;
+   text-align: center;
+   vertical-align: middle;
+}
+
+#to_get_the_code span {
+   vertical-align:middle;
 }
 
 #readUrl {
@@ -31,11 +80,19 @@ body {
 
 #uploadedImage {
     position: absolute;
-    height: 412px;
-    width: 700px;
+    height: 450px;
+    width: 800px;
     display: none;
 }
 
+#settings_color {
+   margin-top: 8vh;
+   margin-left: 7%;
+   height: 120px;
+   width: 215px;
+   float: left;
+   height: auto;
+}
 :root {
     --window_body: rgb(0,102,204, 0.3);
     --window_outline: rgb(0, 120, 215);
@@ -44,7 +101,7 @@ body {
  .settings_color {
     float: left;
     height: 120px;
-    width: 215px;
+    width: 250px;
  }
 
  #color_picker_container {
@@ -54,9 +111,8 @@ body {
     background-color: white;
     height: 120px;
     width: 215px;
-    border: solid 1px #ccc;
+    border: solid 2px #ccc;
     padding: 1rem;
-
  }
  
  canvas:hover {
@@ -69,17 +125,24 @@ body {
  
  #hue_bar {
     border-radius: 0.5rem;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
  }
  
- .select_container {
-    padding: 1rem;
+ .select_container, select {
+   width: 250px;
+   min-height: 35px;
+   height: auto;
+   border-radius: 0.7rem;
+   margin-top: 5px;
+   font-family: "Noto Sans SC", sans-serif;
+   font-weight: bold;
+   font-size: medium;
+   text-align: center;
  }
  
  .window_container {
     position: absolute;
     #basebody {
-       /* opacity: 0.3; */
        fill: var(--window_body);
        stroke: var(--window_outline);
     }
@@ -89,3 +152,16 @@ body {
     height: 120px;
     width: 200px;
  }
+
+#footer {
+   height: 30px;
+   flex: 0 1 auto;
+   margin-left: 80%;
+   a {
+      font-family: "Noto Sans SC", sans-serif;
+      text-decoration: none;
+      margin-right: 20px;
+      margin-bottom: 5px;
+      color: white;
+   }
+}
