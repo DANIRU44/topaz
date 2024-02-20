@@ -54,7 +54,8 @@ body {
    font-size: medium;
    min-height: 40px;
    height: auto;
-   width: 10vw;
+   min-width: 10vw;
+   width: auto;
    border-radius: 10px;
 }
 
@@ -63,8 +64,10 @@ body {
    font-family: "Noto Sans SC", sans-serif;
    font-weight: bold;
    font-size: medium;
-   height: 40px;
-   width: 13vw;
+   min-height: 40px;
+   height: auto;
+   min-width: 13vw;
+   width: auto;
    border-radius: 10px;
    text-align: center;
    vertical-align: middle;
