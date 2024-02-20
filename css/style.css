@@ -5,7 +5,7 @@ body {
     background-color: rgb(31, 31, 31);
 }
 
-#input_and_wallpaper {
+#main {
     float: left;
     height: auto;
     width: 700px;
@@ -21,7 +21,7 @@ body {
     border-radius: 3px;
 }
 
-#input_image{
+#question, #input_image, #to_get_the_code{
     display: inline-block;
 }
 
