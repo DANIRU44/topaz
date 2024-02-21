@@ -45,8 +45,17 @@ body {
    color: white;
    border-radius: 25px;
    border: solid 4px white;
-
 }
+
+ #question:hover {
+   color: black;
+   border: solid 4px white;
+   background-color: white;
+   cursor: default;
+   font-weight: bolder;
+   transform: scale(1.1);
+   transition: 0.2s;
+ }
 
 #input_image, button{
    font-family: "Noto Sans SC", sans-serif;
@@ -57,6 +66,15 @@ body {
    min-width: 10vw;
    width: auto;
    border-radius: 10px;
+}
+
+#input_image:hover {
+   transform: scale(1.05);
+   transition: 0.1s;
+}
+
+#input_image:active{
+   transform: scale(1);
 }
 
 #to_get_the_code {
@@ -74,6 +92,20 @@ body {
    p {
       margin: 10px;
    }
+}
+
+#to_get_the_code:hover {
+   transform: scale(1.05);
+   transition: 0.1s;
+   cursor: default;
+   background-color: rgb(29, 151, 151);
+   p {
+      color: white;
+   }
+}
+
+#to_get_the_code:active{
+   transform: scale(1);
 }
 
 #readUrl {
@@ -170,6 +202,15 @@ body {
    border-radius: 10px;
 }
 
+.preset:hover {
+   transform: scale(1.05);
+   transition: 0.1s;
+}
+
+.preset:active {
+   transform: scale(1);
+}
+
 #futuristic_orange {
    background-color: rgb(240, 162, 36);
    border: solid 2px rgb(220, 148, 35);
@@ -213,4 +254,9 @@ body {
       margin-bottom: 5px;
       color: white;
    }
+}
+
+#footer a:hover{
+   font-weight: bold;
+   text-decoration: underline;
 }
