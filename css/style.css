@@ -10,6 +10,7 @@ body {
 #content {
    flex: 1 0 auto;
 }
+
 #main {
     float: left;
     height: auto;
@@ -243,7 +244,6 @@ body {
 
 #footer {
    height: 30px;
-   flex: 0 1 auto;
    margin-left: 80%;
    display:inline-block;
    white-space: nowrap;
@@ -272,5 +272,9 @@ body {
 
    #footer {
       margin-left: 10%;
+   }
+
+   #content {
+      width: 800px;
    }
 }
