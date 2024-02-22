@@ -106,7 +106,6 @@ document.getElementById('readUrl').addEventListener('change', function(){
   }
   
   function mouseoutColorBlock(e) {
-     //! testing
      colorPickerState.drag = false;
   }
   
@@ -159,4 +158,52 @@ document.getElementById('readUrl').addEventListener('change', function(){
   colorBlock.addEventListener("mousedown", mousedownColorBlock, false);
   colorBlock.addEventListener("mouseup", mouseupColorBlock, true);
   colorBlock.addEventListener("mousemove", mousemoveColorBlock, false);
-  
+
+
+// движение окна
+const prev = { x: 0, y: 0 };
+const rangeLimit = (v, a, b) => v > b ? b : (v < a ? a : v);
+const savePosition = (e) => {
+  prev.x = e.pageX;
+  prev.y = e.pageY;
+};
+
+let window_container = document.getElementById('window_container');
+let wallpaper = document.getElementById('wallpaper');
+let drag = false;
+
+window_container.style.position = 'absolute';
+
+
+let range = {
+  X: wallpaper.clientWidth  - window_container.offsetWidth,
+  Y: wallpaper.clientHeight - window_container.offsetHeight,
+};
+
+window_container.onmousedown = function(e) {
+  savePosition(e);
+  drag = true;
+};
+document.onmouseup = function() {
+  drag = false;
+};
+document.onmousemove = function(e) {
+  if (drag) move(e);
+};
+
+function move(e) {
+
+  let x = window_container.offsetLeft + (e.pageX - prev.x);
+  let y = window_container.offsetTop  + (e.pageY - prev.y);
+
+  x = rangeLimit(x, 0, range.X);
+  y = rangeLimit(y, 0, range.Y);
+
+  savePosition(e);
+  reLoc(x, y);
+}
+
+function reLoc(x, y) {
+   window_container.style.left = x + 'px';
+   window_container.style.top  = y + 'px';
+}

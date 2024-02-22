@@ -5,6 +5,7 @@ body {
     background-color: rgb(31, 31, 31);
     display: flex;
     flex-direction: column;
+    user-select: none;
 }
 
 #content {
@@ -169,7 +170,7 @@ body {
    text-align: center;
  }
  
- .window_container {
+ #window_container {
     position: absolute;
     #basebody {
        fill: var(--window_body);
@@ -177,7 +178,7 @@ body {
     }
  }
  
- svg, .window_container {
+ svg, #window_container {
     height: 120px;
     width: 200px;
  }
