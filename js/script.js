@@ -140,8 +140,15 @@ document.getElementById('readUrl').addEventListener('change', function(){
         1,
         1
      ).data;
+   
+     let alpha = 1
+
+     if (selectedVariable.name == "window_body") {
+         alpha = 0.3
+     }
+
      colorPickerState.rgbaColor =
-        "rgba(" + imageData[0] + "," + imageData[1] + "," + imageData[2] + ",0.3)";
+        "rgba(" + imageData[0] + "," + imageData[1] + "," + imageData[2] + "," + alpha;
      const rootElement = document.querySelector(":root");
      rootElement.style.setProperty(
         `--${selectedVariable.name}`,
@@ -149,12 +156,30 @@ document.getElementById('readUrl').addEventListener('change', function(){
      );
   }
   
-  hueBar.addEventListener("mouseout", mouseoutHueBar, false); //! testing
+  function changeColorFromPreset(idPreset){
+   const preset = document.getElementById(idPreset);
+   const colorBody = window.getComputedStyle(preset).backgroundColor.slice(0,-1) + ', 0.3)';
+   const colorBorder = window.getComputedStyle(preset).border.slice(12);
+   const rootElement = document.querySelector(":root");
+
+   rootElement.style.setProperty(
+        `--window_body`,
+        colorBody
+     );
+   rootElement.style.setProperty(
+      `--window_outline`,
+      colorBorder
+   );
+
+   
+  }
+
+  hueBar.addEventListener("mouseout", mouseoutHueBar, false); 
   hueBar.addEventListener("mousedown", mousedownHueBar, false);
   hueBar.addEventListener("mouseup", mouseupHueBar, false);
   hueBar.addEventListener("mousemove", mousemoveHueBar, false);
   
-  colorBlock.addEventListener("mouseout", mouseoutColorBlock, false); //! testing
+  colorBlock.addEventListener("mouseout", mouseoutColorBlock, false); 
   colorBlock.addEventListener("mousedown", mousedownColorBlock, false);
   colorBlock.addEventListener("mouseup", mouseupColorBlock, true);
   colorBlock.addEventListener("mousemove", mousemoveColorBlock, false);
