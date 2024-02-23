@@ -148,7 +148,7 @@ document.getElementById('readUrl').addEventListener('change', function(){
      }
 
      colorPickerState.rgbaColor =
-        "rgba(" + imageData[0] + "," + imageData[1] + "," + imageData[2] + "," + alpha;
+        "rgba(" + imageData[0] + "," + imageData[1] + "," + imageData[2] + "," + alpha + ")";
      const rootElement = document.querySelector(":root");
      rootElement.style.setProperty(
         `--${selectedVariable.name}`,
