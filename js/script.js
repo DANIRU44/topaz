@@ -45,6 +45,12 @@ document.getElementById('readUrl').addEventListener('change', function(){
      rgbaColor: "rgba(255,0,0,1)"
   };
   
+
+  const windowColor = {
+   "window_body": "0, 102, 204",
+   "window_outline": "0, 120, 215"
+      }
+
   ctx_colorBlock.rect(0, 0, colorBlockWidth, colorBlockHeight);
   fillColorBlockGradient();
   
@@ -60,6 +66,7 @@ document.getElementById('readUrl').addEventListener('change', function(){
   ctx_hueBar.fillStyle = grd1;
   ctx_hueBar.fill();
   
+
   function clickOnHueBar(e) {
      hueBarState.x = e.offsetX;
      hueBarState.y = e.offsetY;
@@ -154,14 +161,16 @@ document.getElementById('readUrl').addEventListener('change', function(){
         `--${selectedVariable.name}`,
         colorPickerState.rgbaColor
      );
+
+     windowColor[selectedVariable.name] = `${imageData[0]}, ${imageData[1]}, ${imageData[2]}`
+
   }
-  
+
   function changeColorFromPreset(idPreset){
    const preset = document.getElementById(idPreset);
-   const colorBody = window.getComputedStyle(preset).backgroundColor.slice(0,-1) + ', 0.3)';
+   const colorBody = "rgba" + window.getComputedStyle(preset).backgroundColor.slice(3,-1) + ", 0.3)";
    const colorBorder = window.getComputedStyle(preset).border.slice(12);
    const rootElement = document.querySelector(":root");
-
    rootElement.style.setProperty(
         `--window_body`,
         colorBody
@@ -170,8 +179,9 @@ document.getElementById('readUrl').addEventListener('change', function(){
       `--window_outline`,
       colorBorder
    );
-
    
+   windowColor["window_body"] = window.getComputedStyle(preset).backgroundColor.slice(4,-1);
+   windowColor["window_outline"] = window.getComputedStyle(preset).border.slice(16,-1);
   }
 
   hueBar.addEventListener("mouseout", mouseoutHueBar, false); 
@@ -231,4 +241,20 @@ function move(e) {
 function reLoc(x, y) {
    window_container.style.left = x + 'px';
    window_container.style.top  = y + 'px';
+}
+
+// генерация конфигурационного файла reg
+
+function getCode() {
+   let code = `Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Control Panel\Colors]
+"Hilight"="${windowColor["window_body"]}"
+   
+[HKEY_CURRENT_USER\Control Panel\Colors]
+"HotTrackingColor"="${windowColor["window_outline"]}"
+`
+   console.log(code)
+   return code
+
 }
