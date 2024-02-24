@@ -246,15 +246,33 @@ function reLoc(x, y) {
 // генерация конфигурационного файла reg
 
 function getCode() {
-   let code = `Windows Registry Editor Version 5.00
+   let code = `Windows Registry Editor Version 5.00<br><br>
 
-[HKEY_CURRENT_USER\Control Panel\Colors]
-"Hilight"="${windowColor["window_body"]}"
+[HKEY_CURRENT_USER\Control Panel\Colors]<br>
+"Hilight"="${windowColor["window_body"]}"<br><br>
    
-[HKEY_CURRENT_USER\Control Panel\Colors]
+[HKEY_CURRENT_USER\Control Panel\Colors]<br>
 "HotTrackingColor"="${windowColor["window_outline"]}"
 `
-   console.log(code)
-   return code
+   document.getElementById('for_reg').innerHTML = code;
 
 }
+
+
+let openModalBtn = document.getElementById("to_get_the_code");
+let modal = document.getElementById("myModal");
+let closeModalBtn = document.getElementById("closeModalBtn");
+
+openModalBtn.addEventListener("click", function() {
+    modal.style.display = "block";
+});
+
+closeModalBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
