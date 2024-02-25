@@ -260,7 +260,7 @@ function getCode() {
 
 
 let openModalBtn = document.getElementById("to_get_the_code");
-let modal = document.getElementById("myModal");
+let modal = document.getElementById("getModal");
 let closeModalBtn = document.getElementById("closeModalBtn");
 
 openModalBtn.addEventListener("click", function() {
@@ -274,5 +274,24 @@ closeModalBtn.addEventListener("click", function() {
 window.addEventListener("click", function(event) {
     if (event.target === modal) {
         modal.style.display = "none";
+    }
+});
+
+
+let questModalBtn = document.getElementById("question");
+let questmodal = document.getElementById("questionModal");
+let closeQuestBtn = document.getElementById("closeModalBtn2");
+
+questModalBtn.addEventListener("click", function() {
+   questmodal.style.display = "block";
+});
+
+closeQuestBtn.addEventListener("click", function() {
+   questmodal.style.display = "none";
+});
+
+window.addEventListener("click", function(event) {
+    if (event.target === questmodal) {
+      questmodal.style.display = "none";
     }
 });

@@ -293,15 +293,18 @@ body {
    background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Modal Content */
-.modal-content {
+.modal::-webkit-scrollbar{
+   width: 0;
+}
+
+.get-modal-content {
    position: fixed;
    display: block;
-   z-index: 99999999;
    background-color: #ffffff;
    margin-top: 5%;
    margin-left: 20%;
    padding: 20px;
+   min-width: 430px;
    width: 50%;
    border-radius: 8px;
    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
@@ -321,12 +324,40 @@ body {
    color: #ff5b5b;
 }
 
-#myModal p {
+#getModal p, #questionModal p {
    font-family: "Noto Sans SC", sans-serif;
    font-weight: bold;
+   font-size: 20px;
+}
+
+#getModal code {
    font-size: 18px;
 }
 
-code {
-   font-size: 18px;
+.question-modal-content {
+   position: relative;
+   display: block;
+   background-color: #ffffff;
+   margin-top: 2%;
+   margin-left: 20%;
+   padding: 20px;
+   min-width: 430px;
+   width: 50%;
+   height: auto;
+   border-radius: 8px;
+   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+#questionModal img {
+   max-width: 90%;
+}
+
+#questionModal code {
+   font-size: 15px;
+   font-weight: bold;
+}
+
+#questionModal span{
+   font-family: "Noto Sans SC", sans-serif;
+   font-size: medium;
 }
