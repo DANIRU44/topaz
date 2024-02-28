@@ -181,7 +181,7 @@ document.getElementById('readUrl').addEventListener('change', function(){
    );
    
    windowColor["window_body"] = window.getComputedStyle(preset).backgroundColor.slice(4,-1);
-   windowColor["window_outline"] = window.getComputedStyle(preset).border.slice(16,-1);
+   windowColor["window_outline"] = window.getComputedStyle(preset).border.split('(')[1].slice(0,-1);
   }
 
   hueBar.addEventListener("mouseout", mouseoutHueBar, false); 
